@@ -1,9 +1,11 @@
-package com.self.parkinglot;
+package com.self.parkinglot.domain;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
+
 @Entity
 public class EnterIn {
     @Id
@@ -11,7 +13,7 @@ public class EnterIn {
     private Long id;
     private int carNumber;
     @CreationTimestamp
-    private Date inTime;
+    private Timestamp inTime;
 
     public Long getId() {
         return id;
@@ -29,7 +31,7 @@ public class EnterIn {
         this.carNumber = carNumber;
     }
 
-    public Date getInTime() {
+    public Timestamp getInTime() {
         return inTime;
     }
 
@@ -41,7 +43,7 @@ public class EnterIn {
                 '}';
     }
 
-    public void setInTime(Date inTime) {
+    public void setInTime(Timestamp inTime) {
         this.inTime = inTime;
     }
 }

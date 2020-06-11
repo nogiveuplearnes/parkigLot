@@ -1,13 +1,14 @@
-package com.self.parkinglot;
+package com.self.parkinglot.domain;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class EnterOut {
     int CarNumber;
-    private Date inTime;
-    private Date OutTime;
+    private Timestamp inTime;
+    private Timestamp OutTime;
 
     @Override
     public String toString() {
@@ -29,11 +30,11 @@ public class EnterOut {
         CarNumber = carNumber;
     }
 
-    public Date getInTime() {
+    public Timestamp getInTime() {
         return inTime;
     }
 
-    public void setInTime(Date inTime) {
+    public void setInTime(Timestamp inTime) {
         this.inTime = inTime;
     }
 
@@ -41,7 +42,7 @@ public class EnterOut {
         return OutTime;
     }
 
-    public void setOutTime(Date outTime) {
+    public void setOutTime(Timestamp outTime) {
         OutTime = outTime;
     }
 
