@@ -4,7 +4,7 @@ package com.self.parkinglot.controller;
 import com.self.parkinglot.domain.EnterIn;
 import com.self.parkinglot.domain.EnterOut;
 import com.self.parkinglot.dao.ParkingRepo;
-import com.self.parkinglot.service.ParkingService;
+import com.self.parkinglot.service.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +15,11 @@ public class ParkingController {
     @Autowired
     ParkingRepo repo;
 
+    @Autowired
+    ParkingLotService service;
 
     @RequestMapping("/parking/{carNumber}")
-    public List<EnterOut> getCost(@PathVariable("carNumber") int carNumber) {
-        ParkingService service = new ParkingService();
+    public EnterOut getCost(@PathVariable("carNumber") int carNumber) {
         return service.calculateCost(carNumber);
     }
 

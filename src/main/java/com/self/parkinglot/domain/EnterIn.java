@@ -4,7 +4,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Entity
 public class EnterIn {
@@ -12,8 +11,10 @@ public class EnterIn {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int carNumber;
+
     @CreationTimestamp
     private Timestamp inTime;
+    private int slot;
 
     public Long getId() {
         return id;

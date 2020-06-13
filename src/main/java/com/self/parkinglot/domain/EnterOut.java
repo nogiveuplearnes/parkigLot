@@ -1,6 +1,5 @@
 package com.self.parkinglot.domain;
 
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 import java.util.Date;
