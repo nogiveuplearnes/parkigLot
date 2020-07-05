@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -18,6 +19,8 @@ public class ParkingController {
     private static Logger logger= LoggerFactory.getLogger(ParkingController.class);
     @Autowired
     ParkingRepo repo;
+
+
 
     @Autowired
     ParkingLotService service;
@@ -32,7 +35,9 @@ public class ParkingController {
     @ResponseBody
     public EnterIn saveParking(EnterIn eIn) {
         logger.info("Entered parking controller");
+
         repo.save(eIn);
         return eIn;
     }
+
 }
