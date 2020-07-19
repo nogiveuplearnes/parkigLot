@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    image: app100:latest
+    ports:
+      - "8081"
+    environment:
+      DB : host.docker.internal:3306
+
+    entrypoint: "/bin/sh -c 'java -jar /app.jar --spring.datasource.url=jdbc:mysql://$${DB}/demo?serverTimezone=UTC'"
