@@ -4,10 +4,18 @@ services:
     image: app100:latest
     ports:
       - "8081"
-    environment:
-      DB : host.docker.internal:3306
+    depends_on:
+      - jaysql
 
-    entrypoint: "/bin/sh -c 'java -jar /app.jar --spring.datasource.url=jdbc:mysql://$${DB}/demo?serverTimezone=UTC'"
+    entrypoint: "/bin/sh -c 'java -jar /app.jar --spring.datasource.url=jdbc:mysql://jaysql/demo?serverTimezone=UTC'"
+
+  jaysql:
+    image: mysql:latest
+    ports:
+      - "3036"
+    environment:
+      MYSQL_DATABASE: demo
+      MYSQL_ROOT_PASSWORD: root
 
   nginx:
      image: nginx:latest
@@ -18,3 +26,4 @@ services:
 
      ports:
        - "4000:4000"
+
